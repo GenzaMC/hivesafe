@@ -1,16 +1,20 @@
 import "./globals.css"
 import Navbar from "./components/layout/Navbar"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 
 export const metadata: Metadata = {
   title: "HiveSafe",
   description: "The Family-Friendly Minecraft Whitelist Server",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
+  icons: {
+    icon: "/icon.png",
   },
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 }
 
 export default function RootLayout({
