@@ -4,9 +4,9 @@ export async function GET(
   request: NextRequest,
   context: { params: Promise<{ username: string }> }
 ) {
-  try {
-    const { username } = await context.params;
+  const { username } = await context.params;
 
+  try {
     const res = await fetch(
       `https://api.mojang.com/users/profiles/minecraft/${username}`
     );
@@ -18,7 +18,7 @@ export async function GET(
     const data = await res.json();
 
     return NextResponse.json({ uuid: data.id });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ uuid: null });
   }
 }
