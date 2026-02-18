@@ -1,0 +1,146 @@
+.page {
+  height: 100dvh;
+  overflow-y: hidden; /* 🔒 låser ALT scroll */
+  overflow-x: hidden; /* 🔒 låser ALT scroll */
+
+  background-image: url("/forest-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 43%;
+  background-attachment: fixed;
+}
+
+
+/* CONTAINER */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 140px 40px 0px; /* normal bund */
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  align-items: center;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  color: #fff8e6;
+}
+
+.hero h1 {
+  font-size: 52px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  font-size: clamp(32px, 5vw, 60px);
+
+  background: linear-gradient(180deg, #fff6c0, #ffb700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow:
+    0 3px 0 #5a3300,
+    0 8px 20px rgba(0,0,0,0.7),
+    0 0 30px rgba(255,200,80,0.6);
+}
+
+.hero p {
+  font-size: 22px; /* lidt større */
+  font-weight: 900; /* 👈 gør den tykkere */
+  letter-spacing: 0.5px;
+
+  color: #ffe39a;
+
+  text-shadow:
+    0 1.5px 0 #5a3300,
+    0 4px 10px rgba(0,0,0,0.7),
+    0 0 15px rgba(255,200,80,0.6);
+}
+
+/* BEE ROW */
+.beeRow {
+  display: flex;
+  gap: 70px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* CARDS */
+.beeCard {
+  width: 250px;
+  padding: 25px 25px 35px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* 👈 VIGTIG */
+  gap: 10px; /* styrer al spacing */
+
+  border-radius: 32px;
+
+  background: linear-gradient(
+    160deg,
+    rgba(60,30,10,0.9),
+    rgba(110,65,20,0.85)
+  );
+
+  backdrop-filter: blur(12px);
+}
+
+.beeCard:hover {
+  transform: translateY(-10px);
+}
+
+.beeCard img {
+  width: 170px; /* behold evt større størrelse */
+  height: auto;
+  display: block;
+  margin: 0;
+}
+
+.beeCard h3 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #ffd76a;
+
+  text-shadow:
+    0 2px 0 #6b3d00,
+    0 6px 15px rgba(0,0,0,0.6);
+}
+
+
+.beeCard button {
+  margin-top: auto;
+  background: linear-gradient(180deg,#ffd76a,#ffb700);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cardText {
+  font-size: 14px;
+  color: #ffe7a3;
+  margin-top: 6px;
+}
+
+.applyButton {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 14px 32px;
+  border-radius: 16px;
+
+  background: linear-gradient(180deg, #ffd76a, #ffb700);
+  color: #2b1a00;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+
+  box-shadow:
+    0 10px 25px rgba(255,190,0,0.45),
+    inset 0 -4px 0 rgba(0,0,0,0.2);
+
+  transition: all 0.25s ease;
+}

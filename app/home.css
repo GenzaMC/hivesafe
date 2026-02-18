@@ -1,0 +1,114 @@
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 160px;
+  padding-bottom: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 140px;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+.hero p {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #fff3c4;
+}
+
+/* BEE ROW */
+.bee-row {
+  display: flex;
+  gap: 80px;
+}
+
+/* BEE CARD */
+.bee-card {
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.15);
+  border: 4px solid #c87a00;
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
+  width: 280px;
+  transition: transform 0.3s ease;
+}
+
+.bee-card:hover {
+  transform: translateY(-10px);
+}
+
+.bee-img {
+  margin-bottom: 20px;
+}
+
+.bee-card h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #5c2c00;
+  margin-bottom: 20px;
+}
+
+/* APPLY BUTTON */
+.apply-btn {
+  background: linear-gradient(to bottom, #ffd54a, #f4b400);
+  padding: 12px 24px;
+  border-radius: 14px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+}
+
+.apply-btn:active {
+  transform: scale(0.95);
+}
+
+/* RULES */
+.rules {
+  text-align: center;
+}
+
+.rules h2 {
+  font-size: 32px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.green-btn {
+  background: #3ea24c;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 12px;
+  border: none;
+  font-weight: bold;
+}
+
+/* TEAM */
+.team h2 {
+  font-size: 32px;
+  color: white;
+}
+
+/* DONATE */
+.donate-btn {
+  background: #4caf50;
+  color: white;
+  font-size: 22px;
+  padding: 16px 50px;
+  border-radius: 16px;
+  border: none;
+  font-weight: bold;
+}

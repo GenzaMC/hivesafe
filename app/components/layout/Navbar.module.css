@@ -1,0 +1,75 @@
+.navbarWrapper {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.navbar {
+  width: 100%;
+  max-width: 1100px;
+  padding: 14px 40px; /* SLANK NAVBAR */
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: linear-gradient(
+    135deg,
+    rgba(60, 30, 10, 0.95),
+    rgba(100, 55, 20, 0.95)
+  );
+
+  border-radius: 30px;
+
+  box-shadow:
+    0 12px 40px rgba(0,0,0,0.5);
+
+  position: relative;
+  overflow: visible; /* IMPORTANT */
+}
+
+/* Reserve left spacing */
+.leftSpace {
+  width: 140px;
+}
+
+/* Floating logo */
+.floatingLogo {
+  position: absolute;
+  left: 20px;
+  top: -55px;
+  z-index: 10;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.floatingLogo:hover {
+  transform: scale(1.05);
+}
+
+/* LINKS */
+.navLinks {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.navLinks a {
+  color: #f5e6c8;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.loginBtn {
+  background: linear-gradient(180deg, #ffd76a, #ffb700);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}

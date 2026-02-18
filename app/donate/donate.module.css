@@ -1,0 +1,159 @@
+.page {
+  min-height: 100dvh;
+  background-image: url("/forest-bg.jpg");
+  background-size: cover;
+  background-position: center 43%;
+  background-attachment: fixed;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  display: flex;
+  justify-content: center;
+  padding-top: 160px;
+  padding-bottom: 120px;
+}
+
+/* CONTAINER */
+.container {
+  width: 100%;
+  max-width: 850px;
+  padding: 0 20px;
+}
+
+/* CARD */
+.card {
+  background: linear-gradient(
+    160deg,
+    rgba(55,25,8,0.97),
+    rgba(95,55,18,0.96)
+  );
+
+  border-radius: 32px;
+  padding: 60px 50px;
+
+  backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.65),
+    inset 0 0 40px rgba(255,190,60,0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+/* TITLE */
+.title {
+  text-align: center;
+  font-size: 38px;
+  font-weight: 900;
+  color: #ffd76a;
+
+  text-shadow:
+    0 3px 0 #5a3200,
+    0 8px 25px rgba(0,0,0,0.7);
+}
+
+/* SUBTITLE */
+.subtitle {
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffe39a;
+}
+
+/* GOAL BOX */
+.goalBox {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.goalHeader {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  color: #ffd76a;
+}
+
+/* PROGRESS BAR */
+.progressBar {
+  height: 14px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg,#ffd76a,#ffb700);
+  border-radius: 999px;
+
+  box-shadow:
+    0 0 20px rgba(255,190,0,0.5);
+
+  transition: width 0.6s ease;
+}
+
+/* AMOUNT GRID */
+.amountGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+  gap: 15px;
+}
+
+.amountBtn {
+  padding: 14px;
+  border-radius: 18px;
+  border: none;
+  font-weight: 800;
+  cursor: pointer;
+
+  background: linear-gradient(180deg,#ffd76a,#ffb700);
+  color: #2b1a00;
+
+  box-shadow:
+    0 10px 25px rgba(255,190,0,0.35),
+    inset 0 -4px 0 rgba(0,0,0,0.2);
+
+  transition: 0.25s ease;
+}
+
+.amountBtn:hover {
+  transform: translateY(-4px);
+}
+
+/* CUSTOM */
+.customBox {
+  display: flex;
+  gap: 12px;
+}
+
+.customBox input {
+  flex: 1;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,200,120,0.25);
+  background: rgba(255,255,255,0.08);
+  color: white;
+}
+
+.customBtn {
+  padding: 14px 22px;
+  border-radius: 16px;
+  border: none;
+  font-weight: 800;
+  cursor: pointer;
+
+  background: linear-gradient(180deg,#ffd76a,#ffb700);
+  color: #2b1a00;
+}
+
+/* FOOTER */
+.description {
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #ffe39a;
+}

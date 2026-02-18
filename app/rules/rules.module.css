@@ -1,0 +1,187 @@
+.page {
+  min-height: 100dvh;
+  background-image: url("/forest-bg.jpg");
+  background-size: cover;          /* 👈 vigtigt */
+  background-repeat: no-repeat;
+  background-position: center 43%; /* 👈 du kan selv justere tallet */
+  background-attachment: fixed;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  display: flex;
+  justify-content: center;
+  padding-top: 180px;
+  padding-bottom: 120px;
+}
+
+.container {
+  width: 100%;
+  max-width: 850px;
+  padding: 0 20px;
+}
+
+/* Card wrapper */
+.card {
+  background: linear-gradient(
+    160deg,
+    rgba(55,25,8,0.95),
+    rgba(95,55,18,0.92)
+  );
+
+  border-radius: 32px;
+  padding: 50px 45px;
+  backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.65),
+    inset 0 0 40px rgba(255,190,60,0.15);
+}
+
+/* Title */
+.title {
+  text-align: center;
+  font-size: 38px;
+  font-weight: 900;
+  margin-bottom: 40px;
+
+  color: #ffd76a;
+
+  text-shadow:
+    0 3px 0 #5a3200,
+    0 8px 25px rgba(0,0,0,0.7);
+}
+
+.subtitle {
+  font-size: 16px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+
+  color: #ffe39a; /* 👈 skift denne */
+}
+
+/* Rule Item */
+.ruleItem {
+  margin-bottom: 14px;
+  border-radius: 18px;
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,215,106,0.15);
+
+  transition: all 0.3s ease;
+}
+
+.ruleHeader {
+  width: 100%;
+  padding: 18px 22px;
+  background: transparent;
+  border: none;
+  color: #ffe39a;
+  font-weight: 700;
+  font-size: 15px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.ruleItem:hover {
+  background: rgba(255,215,106,0.08);
+}
+
+.ruleContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+  padding: 0 22px;
+}
+
+.ruleItem.open .ruleContent {
+  max-height: 300px;
+  opacity: 1;
+  padding: 18px 22px 22px;
+}
+
+.ruleContent p {
+  color: #f5e6c8;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.icon {
+  font-size: 20px;
+  font-weight: 900;
+  color: #ffd76a;
+  transition: transform 0.3s ease;
+}
+
+.ruleItem.open .icon {
+  transform: rotate(180deg);
+}
+
+.rulesCard {
+  width: 100%;
+  max-width: 850px;
+
+  background: linear-gradient(
+    160deg,
+    rgba(55,25,8,0.95),
+    rgba(95,55,18,0.92)
+  );
+
+  border-radius: 32px;
+  padding: 50px 45px;
+
+  backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.65),
+    inset 0 0 40px rgba(255,190,60,0.15);
+
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* SECTION WRAPPER */
+.sectionWrapper {
+  margin-top: 50px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* Section Title */
+.sectionTitle {
+  display: inline-block;
+  padding: 12px 36px;
+  border-radius: 999px;
+
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+
+  background: rgba(255, 215, 106, 0.08);
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 215, 106, 0.3);
+
+  color: #ffd76a;
+
+  box-shadow:
+    0 8px 30px rgba(0,0,0,0.4),
+    inset 0 0 20px rgba(255,215,106,0.08);
+
+  transition: all 0.3s ease;
+}
+
+.sectionTitle:hover {
+  background: rgba(255, 215, 106, 0.15);
+  transform: translateY(-2px);
+}
+
