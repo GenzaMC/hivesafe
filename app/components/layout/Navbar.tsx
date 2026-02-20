@@ -6,32 +6,45 @@ import styles from "./Navbar.module.css"
 
 export default function Navbar() {
   return (
-    <div className={styles.navbarWrapper}>
-      <nav className={styles.navbar}>
+    <header className={styles.header}>
+      <div className={styles.inner}>
 
-        {/* Empty space left – logo is absolute */}
-        <div className={styles.leftSpace}></div>
+        {/* LEFT SIDE */}
+        <div className={styles.leftSide}>
+          <Link href="/" className={styles.logo}>
+            <Image
+              src="/HiveSafe.png"
+              alt="HiveSafe Logo"
+              width={100}
+              height={45}
+              priority
+            />
+          </Link>
 
-        <div className={styles.navLinks}>
-          <Link href="/">Home</Link>
-          <Link href="/rules">Rules</Link>
-          <Link href="/team">Team</Link>
-          <Link href="/donate">Donate</Link>
-          <button className={styles.loginBtn}>Login</button>
+          <nav className={styles.nav}>
+            <Link href="/">Home</Link>
+            <Link href="/rules">Rules</Link>
+            <Link href="/team">Team</Link>
+            <Link href="/donate">Donate</Link>
+          </nav>
         </div>
 
-        {/* Floating Logo (Clickable to Home) */}
-        <Link href="/" className={styles.floatingLogo}>
-          <Image
-            src="/HiveSafe.png"
-            alt="HiveSafe Logo"
-            width={220}
-            height={120}
-            priority
-          />
-        </Link>
+        {/* RIGHT SIDE */}
+        <div className={styles.rightSide}>
+          <a href="#" className={`${styles.btn} ${styles.discordBtn}`}>
+            Discord
+          </a>
 
-      </nav>
-    </div>
+          <button className={`${styles.btn} ${styles.loginBtn}`}>
+            Login
+          </button>
+
+          <a href="/#apply" className={`${styles.btn} ${styles.applyBtn}`}>
+            Apply
+          </a>
+        </div>
+
+      </div>
+    </header>
   )
 }

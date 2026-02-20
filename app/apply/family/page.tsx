@@ -1,150 +1,303 @@
+"use client"
+
+import { useState } from "react"
 import styles from "../page.module.css"
 
-export default function FamilyApply() {
+export default function BeeFamilyApply() {
+  const [adultCount, setAdultCount] = useState(1)
+  const [childCount, setChildCount] = useState(1)
+
+  const [rulesAccepted, setRulesAccepted] = useState(false)
+  const [toxAccepted, setToxAccepted] = useState(false)
+  const [moderationAccepted, setModerationAccepted] = useState(false)
+  const [logsAccepted, setLogsAccepted] = useState(false)
+  const [discordAccepted, setDiscordAccepted] = useState(false)
+  const [responsibleAccepted, setResponsibleAccepted] = useState(false)
+  const [contactAccepted, setContactAccepted] = useState(false)
+
+  const canSubmit =
+    rulesAccepted &&
+    toxAccepted &&
+    moderationAccepted &&
+    logsAccepted &&
+    discordAccepted &&
+    responsibleAccepted &&
+    contactAccepted
+
+  const adults = Array.from({ length: adultCount })
+  const children = Array.from({ length: childCount })
+
   return (
-    <div className={styles.formCard}>
-      <h1>Bee Family Application</h1>
+    <section className={styles.applySection}>
 
-      {/* FAMILY INFO */}
-      <div className={styles.sectionTitle}>Family Information</div>
+      {/* HERO */}
+      <div className={styles.hero}>
+        <div className={styles.heroTop}>
+          <h1 className={styles.heroMainTitle}>
+            HiveSafe Applications
+          </h1>
+          <p className={styles.heroSubtitle}>
+            Apply as a Bee Family and join HiveSafe together in a safe and moderated whitelist environment.
+          </p>
+        </div>
 
-      <div className={styles.inputGroup}>
-        <label className={styles.label}>How many applicants?</label>
-        <input type="number" required />
+        <div className={styles.heroBottom}>
+          <div className={styles.titleWrapper}>
+            <h2 className={styles.sectionTitle}>
+              Bee Family Application
+            </h2>
+          </div>
+        </div>
       </div>
 
-      <div className={styles.inputGroup}>
-        <label className={styles.label}>
-          Who is the legally responsible adult?
-        </label>
-        <input type="text" required />
-      </div>
+      <form className={styles.formWrapper}>
 
-      <div className={styles.inputGroup}>
-        <label className={styles.label}>
-          Is there an adult actively playing?
-        </label>
-        <input type="text" required />
-      </div>
+        {/* FAMILY INFORMATION */}
+        <div className={styles.formCard}>
+          <h3 className={styles.cardTitle}>Family Information</h3>
 
-      <div className={styles.inputGroup}>
-        <label className={styles.label}>
-          Has anyone been banned before? If yes, explain.
-        </label>
-        <textarea />
-      </div>
+          <div className={styles.formGrid}>
 
-      <div className={styles.inputGroup}>
-        <label className={styles.label}>
-          Have you played on whitelist servers before?
-        </label>
-        <textarea />
-      </div>
+            <div>
+              <label className={styles.label}>
+                How many adults are applying? (1–8)
+              </label>
+              <input
+                type="number"
+                min="1"
+                max="8"
+                value={adultCount}
+                onChange={(e) =>
+                  setAdultCount(
+                    Math.min(8, Math.max(1, Number(e.target.value)))
+                  )
+                }
+                required
+              />
+            </div>
 
-      <div className={styles.checkboxGroup}>
-        <input type="checkbox" required />
-        <span>
-          We understand that members may be removed individually for rule
-          violations.
-        </span>
-      </div>
+            <div>
+              <label className={styles.label}>
+                How many children are applying? (1–8)
+              </label>
+              <input
+                type="number"
+                min="1"
+                max="8"
+                value={childCount}
+                onChange={(e) =>
+                  setChildCount(
+                    Math.min(8, Math.max(1, Number(e.target.value)))
+                  )
+                }
+                required
+              />
+            </div>
 
-      {/* ADULT APPLICANTS */}
-      <div className={styles.sectionTitle}>Adult Applicants</div>
+            <div className={styles.formGridFull}>
+              <label className={styles.label}>
+                Who is the legally responsible adult?
+              </label>
+              <input type="text" required />
+            </div>
 
-      <div className={styles.inputGroup}>
-        <label className={styles.label}>
-          Adult Details (Username, Age, Discord, Country)
-        </label>
-        <textarea required />
-      </div>
+            <div>
+              <label className={styles.label}>
+                Is there an adult who actively plays on the server?
+              </label>
+              <input type="text" required />
+            </div>
 
-      {/* CHILD INFORMATION */}
-      <div className={styles.sectionTitle}>Child Information</div>
+            <div className={styles.formGridFull}>
+              <label className={styles.label}>
+                Has anyone previously been banned? If yes, explain.
+              </label>
+              <textarea required />
+            </div>
 
-      <div className={styles.inputGroup}>
-        <label className={styles.label}>
-          Child Details (Username, Age, Discord if 13+)
-        </label>
-        <textarea required />
-      </div>
+            <div className={styles.formGridFull}>
+              <label className={styles.label}>
+                Have you previously played on whitelist servers?
+              </label>
+              <textarea required />
+            </div>
 
-      <div className={styles.inputGroup}>
-        <label className={styles.label}>
-          Have the children played Minecraft before?
-        </label>
-        <textarea />
-      </div>
+            <div className={styles.formGridFull}>
+              <label className={styles.label}>
+                What type of players are each of you?
+              </label>
+              <textarea required />
+            </div>
 
-      <div className={styles.inputGroup}>
-        <label className={styles.label}>
-          Do you play together as a family?
-        </label>
-        <textarea />
-      </div>
+            <div className={styles.formGridFull}>
+              <label className={styles.label}>
+                Do you understand that members can be removed individually in case of rule violations?
+              </label>
+              <textarea required />
+            </div>
 
-      {/* EXPECTATIONS */}
-      <div className={styles.sectionTitle}>
-        Expectations & Conflict Handling
-      </div>
+          </div>
+        </div>
 
-      <div className={styles.inputGroup}>
-        <label className={styles.label}>
-          What do you hope to gain from HiveSafe?
-        </label>
-        <textarea required />
-      </div>
+        {/* ADULTS */}
+        {adults.map((_, index) => (
+          <div className={styles.formCard} key={index}>
+            <h3 className={styles.cardTitle}>
+              Adult {index + 1}
+            </h3>
 
-      <div className={styles.inputGroup}>
-        <label className={styles.label}>
-          What does “safe community” mean to you?
-        </label>
-        <textarea required />
-      </div>
+            <div className={styles.formGrid}>
+              <div>
+                <label className={styles.label}>Minecraft Username</label>
+                <input type="text" required />
+              </div>
 
-      <div className={styles.inputGroup}>
-        <label className={styles.label}>
-          How would you handle conflicts involving your child?
-        </label>
-        <textarea required />
-      </div>
+              <div>
+                <label className={styles.label}>Age</label>
+                <input type="number" min="18" required />
+              </div>
 
-      {/* CONFIRMATION */}
-      <div className={styles.sectionTitle}>Rules & Consent</div>
+              <div>
+                <label className={styles.label}>Discord</label>
+                <input type="text" required />
+              </div>
 
-      <div className={styles.checkboxGroup}>
-        <input type="checkbox" required />
-        <span>All adults confirm rules are read and accepted.</span>
-      </div>
+              <div>
+                <label className={styles.label}>Country</label>
+                <input type="text" required />
+              </div>
+            </div>
+          </div>
+        ))}
 
-      <div className={styles.checkboxGroup}>
-        <input type="checkbox" required />
-        <span>We accept the zero-tolerance policy for toxic behaviour.</span>
-      </div>
+        {/* CHILDREN */}
+        {children.map((_, index) => (
+          <div className={styles.formCard} key={index}>
+            <h3 className={styles.cardTitle}>
+              Child {index + 1}
+            </h3>
 
-      <div className={styles.checkboxGroup}>
-        <input type="checkbox" required />
-        <span>
-          We understand that HiveSafe is actively moderated and chat logs may
-          be stored for moderation.
-        </span>
-      </div>
+            <div className={styles.formGrid}>
 
-      <div className={styles.checkboxGroup}>
-        <input type="checkbox" required />
-        <span>
-          We confirm Discord age rules are respected.
-        </span>
-      </div>
+              <div>
+                <label className={styles.label}>Minecraft Username</label>
+                <input type="text" required />
+              </div>
 
-      <div className={styles.checkboxGroup}>
-        <input type="checkbox" required />
-        <span>
-          The adult confirms legal responsibility for the child/children.
-        </span>
-      </div>
+              <div>
+                <label className={styles.label}>Age</label>
+                <input type="number" min="6" required />
+              </div>
 
-      <button type="submit">Submit Family Application</button>
-    </div>
+              <div>
+                <label className={styles.label}>
+                  Discord (13+ only – otherwise use adult Discord)
+                </label>
+                <input type="text" />
+              </div>
+
+              <div>
+                <label className={styles.label}>
+                  Has the child played Minecraft before?
+                </label>
+                <input type="text" required />
+              </div>
+
+              <div className={styles.formGridFull}>
+                <label className={styles.label}>
+                  Do you play together as a family?
+                </label>
+                <textarea required />
+              </div>
+
+              <div className={styles.formGridFull}>
+                <label className={styles.label}>
+                  Is the child informed about the server rules? (Yes/No)
+                </label>
+                <input type="text" required />
+              </div>
+
+            </div>
+          </div>
+        ))}
+
+        {/* EXPECTATIONS */}
+        <div className={styles.formCard}>
+          <h3 className={styles.cardTitle}>Expectations & Conflict Handling</h3>
+
+          <div className={styles.formGrid}>
+            <div className={styles.formGridFull}>
+              <label className={styles.label}>
+                What do you hope to gain from HiveSafe?
+              </label>
+              <textarea required />
+            </div>
+
+            <div className={styles.formGridFull}>
+              <label className={styles.label}>
+                What does “safe community” mean to you?
+              </label>
+              <textarea required />
+            </div>
+
+            <div className={styles.formGridFull}>
+              <label className={styles.label}>
+                How do you handle it if your child disagrees with another player?
+              </label>
+              <textarea required />
+            </div>
+          </div>
+        </div>
+
+        {/* RULES */}
+        <div className={styles.formCard}>
+          <h3 className={styles.cardTitle}>Rules & Consent (Adults Only)</h3>
+
+          <div className={styles.formFooter}>
+
+            <div className={styles.checkboxGroup}>
+              <input type="checkbox" required onChange={(e) => setRulesAccepted(e.target.checked)} />
+              <label>All adults confirm rules are read and accepted.</label>
+            </div>
+
+            <div className={styles.checkboxGroup}>
+              <input type="checkbox" required onChange={(e) => setToxAccepted(e.target.checked)} />
+              <label>We accept 0-tolerance for toxic behavior.</label>
+            </div>
+
+            <div className={styles.checkboxGroup}>
+              <input type="checkbox" required onChange={(e) => setModerationAccepted(e.target.checked)} />
+              <label>We understand HiveSafe is actively moderated.</label>
+            </div>
+
+            <div className={styles.checkboxGroup}>
+              <input type="checkbox" required onChange={(e) => setLogsAccepted(e.target.checked)} />
+              <label>We understand chat logs may be stored for moderation.</label>
+            </div>
+
+            <div className={styles.checkboxGroup}>
+              <input type="checkbox" required onChange={(e) => setDiscordAccepted(e.target.checked)} />
+              <label>We confirm Discord age rules are followed.</label>
+            </div>
+
+            <div className={styles.checkboxGroup}>
+              <input type="checkbox" required onChange={(e) => setResponsibleAccepted(e.target.checked)} />
+              <label>We confirm we are legally responsible for the child/children.</label>
+            </div>
+
+            <div className={styles.checkboxGroup}>
+              <input type="checkbox" required onChange={(e) => setContactAccepted(e.target.checked)} />
+              <label>We agree to be contacted in case of issues.</label>
+            </div>
+
+            <button type="submit" disabled={!canSubmit}>
+              Submit Family Application
+            </button>
+
+          </div>
+        </div>
+
+      </form>
+    </section>
   )
 }

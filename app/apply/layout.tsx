@@ -7,9 +7,7 @@ export default function ApplyLayout({
 }) {
   return (
     <main className={styles.page}>
-      <div className={styles.container}>
-        {children}
-      </div>
+      {children}
     </main>
   )
 }

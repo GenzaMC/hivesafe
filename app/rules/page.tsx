@@ -1,181 +1,211 @@
 "use client"
 
-import { useState } from "react"
 import styles from "./rules.module.css"
 
 export default function RulesPage() {
   return (
     <main className={styles.page}>
-      <div className={styles.container}>
-        <div className={styles.rulesCard}>
 
-          <h1 className={styles.title}>HiveSafe – Official Rules</h1>
+      {/* HERO */}
+      <section className={styles.hero}>
+        <h1>HiveSafe Rules</h1>
+        <p className={styles.subtitle}>
+          These rules ensure a safe, structured and fair experience
+          across our Minecraft server and Discord community.
+          By joining HiveSafe, you agree to follow them.
+        </p>
+      </section>
 
-          <p className={styles.subtitle}>
-            These rules exist to ensure a safe, fair, and enjoyable experience
-            for everyone. By playing on HiveSafe or joining our Discord,
-            you agree to follow them.
-          </p>
+      <RuleSection
+        title="🌍 General Rules"
+        rules={generalRules}
+        align="left"
+      />
 
-          {/* GENERAL RULES */}
-          <SectionTitle text="🌍 General Rules" />
-          {generalRules.map((rule, index) => (
-            <Accordion key={`general-${index}`} {...rule} />
-          ))}
+      <RuleSection
+        title="⛏️ Minecraft Server Rules"
+        rules={serverRules}
+        align="right"
+      />
 
-          {/* SERVER RULES */}
-          <SectionTitle text="⛏️ Minecraft Server Rules" />
-          {serverRules.map((rule, index) => (
-            <Accordion key={`server-${index}`} {...rule} />
-          ))}
+      <RuleSection
+        title="⚙️ Allowed Mods"
+        rules={allowedMods}
+        align="left"
+      />
 
-          {/* DISCORD RULES */}
-          <SectionTitle text="💬 Discord Rules" />
-          {discordRules.map((rule, index) => (
-            <Accordion key={`discord-${index}`} {...rule} />
-          ))}
+      <RuleSection
+        title="💬 Discord Rules"
+        rules={discordRules}
+        align="right"
+      />
 
-        </div>
-      </div>
     </main>
   )
 }
 
-/* ================= SECTION TITLE ================= */
+/* ========================= */
+/* SECTION COMPONENT */
+/* ========================= */
 
-function SectionTitle({ text }: { text: string }) {
-  return <h2 className={styles.sectionTitle}>{text}</h2>
-}
-
-/* ================= ACCORDION ================= */
-
-function Accordion({
+function RuleSection({
   title,
-  content,
+  rules,
+  align,
 }: {
   title: string
-  content: string
+  rules: { title: string; content: string }[]
+  align: "left" | "right"
 }) {
-  const [open, setOpen] = useState(false)
-
   return (
-    <div className={`${styles.ruleItem} ${open ? styles.open : ""}`}>
-      <button
-        className={styles.ruleHeader}
-        onClick={() => setOpen(!open)}
-      >
-        <span>{title}</span>
-        <span className={styles.icon}>{open ? "−" : "+"}</span>
-      </button>
-
-      <div
-        className={styles.ruleContent}
-        style={{
-          maxHeight: open ? "500px" : "0px",
-        }}
-      >
-        <p>{content}</p>
+    <section className={styles.section}>
+      <div className={`${styles.titleWrapper} ${styles[align]}`}>
+        <h2 className={styles.sectionTitle}>{title}</h2>
       </div>
-    </div>
+
+      <div className={styles.rulesGrid}>
+        {rules.map((rule, index) => (
+          <div key={index} className={styles.ruleCard}>
+            <h3>{rule.title}</h3>
+            <p>{rule.content}</p>
+          </div>
+        ))}
+      </div>
+    </section>
   )
 }
 
-/* ================= RULE DATA ================= */
+/* ========================= */
+/* RULE DATA */
+/* ========================= */
 
 const generalRules = [
   {
-    title: "1. Respect Everyone",
+    title: "Respect Everyone",
     content:
-      "Treat all players and members with respect. Harassment, hate speech, discrimination, racism, sexism, or personal attacks are strictly prohibited."
+      "Treat all players and members with respect. Harassment, hate speech, discrimination or personal attacks are strictly prohibited."
   },
   {
-    title: "2. No Toxic Behavior",
+    title: "No Toxic Behavior",
     content:
-      "Excessive negativity, baiting, bullying, or provoking drama will not be tolerated."
+      "Excessive negativity, baiting, bullying or provoking drama will not be tolerated."
   },
   {
-    title: "3. Follow Staff Instructions",
+    title: "Follow Staff Instructions",
     content:
-      "Staff decisions are final. Arguing publicly or disrespecting staff may result in punishment."
+      "Staff decisions are final. Public arguments or disrespect toward staff may result in punishment."
   },
   {
-    title: "4. No Threats or Doxxing",
+    title: "No Threats or Doxxing",
     content:
-      "Threatening others or sharing private information (real names, addresses, IPs, etc.) will result in an immediate ban."
+      "Threatening others or sharing private information will result in an immediate ban."
   },
   {
-    title: "5. Use Common Sense",
+    title: "Use Common Sense",
     content:
-      "Not every rule can be written. If something seems unfair or harmful, don’t do it."
+      "If something seems harmful or unfair, don’t do it."
   }
 ]
 
 const serverRules = [
   {
-    title: "1. No Cheating or Unfair Advantages",
+    title: "No Cheating",
     content:
-      "The use of hacked clients, x-ray, auto-clickers, macros, duplication glitches, or unfair mods is strictly forbidden."
+      "Hacked clients, x-ray, macros or unfair mods are strictly forbidden."
   },
   {
-    title: "2. No Griefing or Stealing",
+    title: "No Griefing",
     content:
-      "Do not destroy, modify, or steal from other players' builds or claims without permission."
+      "Do not destroy, modify or steal from other players."
   },
   {
-    title: "3. Respect Claims & Property",
+    title: "Respect Claims",
     content:
-      "Do not attempt to bypass protections or exploit weaknesses in claim systems."
+      "Do not bypass protections or exploit weaknesses."
   },
   {
-    title: "4. No Lag Machines",
+    title: "No Lag Machines",
     content:
-      "Redstone builds, farms, or machines that intentionally cause lag or crash the server are prohibited."
+      "Redstone builds or machines that cause lag are prohibited."
   },
   {
-    title: "5. No Exploiting Bugs",
+    title: "No Exploiting Bugs",
     content:
-      "If you find a bug or glitch, report it. Exploiting it for personal gain will result in punishment."
+      "Report bugs immediately. Exploiting them will result in punishment."
   },
   {
-    title: "6. Fair PvP",
+    title: "Fair PvP",
     content:
-      "Only engage in PvP where it is allowed. No combat logging or exploiting mechanics."
+      "No combat logging or mechanic abuse."
   },
   {
-    title: "7. No Real Money Trading (RMT)",
+    title: "No Real Money Trading",
     content:
-      "Trading in-game items, currency, or accounts for real-world money is not allowed unless officially approved."
+      "Trading items or accounts for real money is not allowed."
+  }
+]
+
+const allowedMods = [
+  {
+    title: "OptiFine",
+    content:
+      "Allowed for performance and visual improvements only. No gameplay advantages."
+  },
+  {
+    title: "Sodium / Iris",
+    content:
+      "Performance optimization mods are fully allowed."
+  },
+  {
+    title: "MiniMap (No Radar)",
+    content:
+      "Minimaps are allowed, but entity radar, cave maps or player tracking features are forbidden."
+  },
+  {
+    title: "Replay Mod",
+    content:
+      "Allowed for recording and cinematic purposes only."
+  },
+  {
+    title: "Litematica (No Printer)",
+    content:
+      "Schematics are allowed, but automated printer features are strictly prohibited."
+  },
+  {
+    title: "Client-Side UI Mods",
+    content:
+      "Inventory tweaks, HUD customization and accessibility mods are allowed."
   }
 ]
 
 const discordRules = [
   {
-    title: "1. No Spam",
+    title: "No Spam",
     content:
-      "Do not flood channels with repeated messages, excessive emojis, caps abuse, or meaningless content."
+      "Do not flood channels with repeated messages or meaningless content."
   },
   {
-    title: "2. No NSFW Content",
+    title: "No NSFW",
     content:
-      "NSFW, explicit, or inappropriate content is strictly prohibited."
+      "Explicit or inappropriate content is strictly prohibited."
   },
   {
-    title: "3. No Advertising",
+    title: "No Advertising",
     content:
-      "Do not advertise other servers, Discords, products, or services without permission."
+      "Do not advertise other servers or services without permission."
   },
   {
-    title: "4. Use Channels Correctly",
+    title: "Use Channels Correctly",
     content:
-      "Keep conversations in the appropriate channels to maintain organization."
+      "Keep conversations in the appropriate channels."
   },
   {
-    title: "5. No Mass Pinging",
+    title: "No Mass Pinging",
     content:
-      "Do not ping @everyone, @here, or multiple users without valid reason."
+      "Do not ping multiple users without valid reason."
   },
   {
-    title: "6. No Impersonation",
+    title: "No Impersonation",
     content:
       "Do not pretend to be staff or another member."
   }
