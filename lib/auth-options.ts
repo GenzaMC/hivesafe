@@ -28,8 +28,12 @@ export const authOptions: NextAuthOptions = {
         token.globalName = discordProfile.global_name ?? null
         token.discriminator = discordProfile.discriminator ?? null
 
+        // 🔥 FIX: Support for animated Discord avatars
         if (discordProfile.avatar) {
-          token.avatar = `https://cdn.discordapp.com/avatars/${discordProfile.id}/${discordProfile.avatar}.png`
+          const isAnimated = discordProfile.avatar.startsWith("a_")
+          const extension = isAnimated ? "gif" : "png"
+
+          token.avatar = `https://cdn.discordapp.com/avatars/${discordProfile.id}/${discordProfile.avatar}.${extension}`
         } else {
           token.avatar = null
         }
