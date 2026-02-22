@@ -19,7 +19,7 @@
 .inner {
   max-width: 1280px;
   margin: 0 auto;
-  height: 72px;
+  height: 82px;
   padding: 0 40px;
 
   display: flex;
@@ -40,7 +40,7 @@
 .logo {
   display: flex;
   align-items: center;
-  transform: translateY(8px); /* 🔥 BEHOLDES */
+  transform: translateY(3px); /* 🔥 BEHOLDES */
 }
 
 /* === LOGO PULSE (SUBTIL PREMIUM) === */
@@ -156,4 +156,90 @@
 .applyBtn:hover {
   background: #ffd76a;
   transform: translateY(-1px);
+}
+
+
+
+/* ========================= */
+/* USER DROPDOWN */
+/* ========================= */
+
+.userDropdown {
+  position: relative;
+}
+
+.userTrigger {
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.userTrigger:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.dropdownMenu {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  width: 220px;
+  padding: 14px;
+  border-radius: 16px;
+
+  background: linear-gradient(180deg,#1a130a,#120d06);
+  border: 1px solid rgba(255,183,0,0.3);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.6),
+    0 0 25px rgba(255,180,0,0.25);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dropdownItem {
+  font-size: 12px;
+  color: #ffcc66;
+  word-break: break-all;
+}
+
+.dropdownButton {
+  background: rgba(255,255,255,0.08);
+  border: none;
+  padding: 8px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.dropdownButton:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.logoutButton {
+  background: rgba(255,80,80,0.15);
+  border: 1px solid rgba(255,80,80,0.4);
+  padding: 8px;
+  border-radius: 10px;
+  color: #ff7b7b;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.logoutButton:hover {
+  background: rgba(255,80,80,0.25);
 }
