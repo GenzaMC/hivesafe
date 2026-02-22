@@ -9,12 +9,18 @@ import styles from "./Navbar.module.css"
 export default function Navbar() {
   const { data: session } = useSession()
   const [open, setOpen] = useState(false)
+  const [imageError, setImageError] = useState(false)
 
   const copyId = () => {
     if (session?.user?.id) {
       navigator.clipboard.writeText(session.user.id)
     }
   }
+
+  const username =
+    session?.user?.globalName ||
+    session?.user?.username ||
+    "User"
 
   return (
     <header className={styles.header}>
@@ -64,19 +70,22 @@ export default function Navbar() {
                 className={styles.userTrigger}
                 onClick={() => setOpen(!open)}
               >
-                {session.user?.image && (
+                {session.user?.image && !imageError ? (
                   <Image
                     src={session.user.image}
-                    alt="avatar"
+                    alt=""
                     width={28}
                     height={28}
                     className={styles.avatar}
+                    onError={() => setImageError(true)}
                   />
+                ) : (
+                  <div className={styles.avatarFallback}>
+                    {username.charAt(0).toUpperCase()}
+                  </div>
                 )}
 
-                <span>
-                  {session.user?.username}
-                </span>
+                <span>{username}</span>
               </button>
 
               {open && (
